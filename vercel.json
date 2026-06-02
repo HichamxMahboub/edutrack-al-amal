@@ -16,6 +16,14 @@
       "dest": "/public/build/$1"
     },
     {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/favicon.png",
+      "dest": "/public/favicon.png"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/index.php"
     }
@@ -26,6 +34,9 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie",
     "CACHE_STORE": "array",
-    "QUEUE_CONNECTION": "sync"
+    "QUEUE_CONNECTION": "sync",
+    "VIEW_COMPILED_PATH": "/tmp/views",
+    "APP_LOCALE": "fr",
+    "APP_FALLBACK_LOCALE": "en"
   }
 }

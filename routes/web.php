@@ -12,6 +12,32 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'app' => config('app.name', 'EduTrack Al Amal'),
+        'environment' => app()->environment(),
+        'view_compiled_path' => config('view.compiled'),
+        'tmp_writable' => is_writable('/tmp'),
+        'time' => now()->toIso8601String(),
+    ]);
+});
+
+Route::get('/debug-config', function () {
+    abort_unless(config('app.debug'), 404);
+
+    return response()->json([
+        'app_key_set' => filled(config('app.key')),
+        'app_env' => config('app.env'),
+        'app_debug' => config('app.debug'),
+        'view_compiled' => config('view.compiled'),
+        'cache_default' => config('cache.default'),
+        'session_driver' => config('session.driver'),
+        'db_connection' => config('database.default'),
+        'tmp_writable' => is_writable('/tmp'),
+    ]);
+});
+
 Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/transformation-digitale', [PublicController::class, 'transformationDigitale'])->name('transformation-digitale');
 
