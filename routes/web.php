@@ -23,6 +23,14 @@ Route::get('/health', function () {
     ]);
 });
 
+
+Route::get('/view-check', function () {
+    return response()->json([
+        'view_bound' => app()->bound('view'),
+        'view_class' => app()->bound('view') ? get_class(app('view')) : null,
+    ]);
+});
+
 Route::get('/debug-config', function () {
     abort_unless(config('app.debug'), 404);
 

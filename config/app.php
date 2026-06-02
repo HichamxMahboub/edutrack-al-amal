@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\ServiceProvider;
-
 return [
 
     /*
@@ -107,21 +105,6 @@ return [
         ),
     ],
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
-    |--------------------------------------------------------------------------
-    |
-    | Vercel can execute with cached bootstrap metadata. Keeping the framework
-    | providers explicit prevents dev-only provider caches from replacing the
-    | default Laravel runtime providers in production.
-    |
-    */
-
-    'providers' => ServiceProvider::defaultProviders()->merge([
-        App\Providers\AppServiceProvider::class,
-    ])->toArray(),
 
     /*
     |--------------------------------------------------------------------------
