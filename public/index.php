@@ -1,5 +1,4 @@
 <?php
-<?php
 
 if (getenv('VERCEL') || getenv('VIEW_COMPILED_PATH')) {
     $paths = [
