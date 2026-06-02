@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="header"><div><p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700">Messages</p><h2 class="text-2xl font-bold text-slate-900">Nouveau message</h2></div></x-slot><div class="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">@include('messages._form')</div></x-app-layout>
