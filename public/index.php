@@ -1,4 +1,23 @@
 <?php
+<?php
+
+if (getenv('VERCEL') || getenv('VIEW_COMPILED_PATH')) {
+    $paths = [
+        '/tmp/views',
+        '/tmp/cache',
+        '/tmp/sessions',
+        '/tmp/framework',
+        '/tmp/framework/views',
+        '/tmp/framework/cache',
+        '/tmp/framework/sessions',
+    ];
+
+    foreach ($paths as $path) {
+        if (! is_dir($path)) {
+            mkdir($path, 0777, true);
+        }
+    }
+}
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
