@@ -24,6 +24,21 @@ Route::get('/health', function () {
 });
 
 
+
+Route::get('/bootstrap-check', function () {
+    return response()->json([
+        'status' => 'ok',
+        'app_booted' => app()->isBooted(),
+        'view_bound' => app()->bound('view'),
+        'view_class' => app()->bound('view') ? get_class(app('view')) : null,
+        'translator_bound' => app()->bound('translator'),
+        'config_loaded' => app()->bound('config'),
+        'env' => app()->environment(),
+        'compiled_path' => config('view.compiled'),
+        'tmp_writable' => is_writable('/tmp'),
+    ]);
+});
+
 Route::get('/view-check', function () {
     return response()->json([
         'view_bound' => app()->bound('view'),

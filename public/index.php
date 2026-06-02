@@ -1,20 +1,17 @@
 <?php
 
-$uriPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
-
-if ($uriPath === '/health') {
+if (($_SERVER['REQUEST_URI'] ?? '') === '/runtime-check') {
     header('Content-Type: application/json');
 
     echo json_encode([
         'status' => 'ok',
-        'app' => getenv('APP_NAME') ?: 'EduTrack Al Amal',
-        'environment' => getenv('APP_ENV') ?: 'production',
-        'view_compiled_path' => getenv('VIEW_COMPILED_PATH') ?: '/tmp/views',
+        'php' => PHP_VERSION,
         'tmp_writable' => is_writable('/tmp'),
-        'time' => gmdate('c'),
+        'vercel' => getenv('VERCEL') ?: null,
+        'view_compiled_path' => getenv('VIEW_COMPILED_PATH') ?: null,
     ]);
 
-    return;
+    exit;
 }
 
 if (getenv('VERCEL') || getenv('VIEW_COMPILED_PATH')) {
@@ -50,12 +47,6 @@ require __DIR__.'/../vendor/autoload.php';
 
 // Bootstrap Laravel and handle the request...
 /** @var Application $app */
-try {
-    $app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-    $app->handleRequest(Request::capture());
-} catch (Throwable $exception) {
-    error_log('EDUTRACK_BOOTSTRAP_ERROR: '.$exception);
-
-    throw $exception;
-}
+$app->handleRequest(Request::capture());
