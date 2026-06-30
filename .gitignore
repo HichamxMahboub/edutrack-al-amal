@@ -1,3 +1,6 @@
+public/build/
+database/database.sqlite
+*.zip
 *.log
 .DS_Store
 .env
