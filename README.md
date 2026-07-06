@@ -1,8 +1,15 @@
-# EduTrack Al Amal
+# EduTrack Al Amal - Système Web de Suivi Scolaire et Reporting
 
 EduTrack Al Amal est une plateforme Laravel de suivi scolaire, social et pédagogique pour l'Association Al Amal. Le projet illustre une démarche de transformation digitale appliquée à un contexte éducatif associatif: centralisation des données, digitalisation des processus internes, pilotage par indicateurs, gestion des rôles et sécurisation des accès.
 
+## English Summary
+
+EduTrack Al Amal is a web-based school tracking and reporting system developed for an association context during a professional internship. It centralizes student records, grades, dashboards, PDF reports, internal messaging, and import/export workflows to support daily educational follow-up and decision making.
+
+This project demonstrates practical full-stack development, user-need analysis, Laravel backend structure, data management, dashboards, reporting, and digital transformation in a real organization.
+
 ## Présentation du projet
+
 - Suivi des élèves, classes, enseignants et encadrants
 - Saisie et consultation des notes
 - Génération de bulletins PDF
@@ -12,12 +19,15 @@ EduTrack Al Amal est une plateforme Laravel de suivi scolaire, social et pédago
 - Page de démonstration du projet selon les notions du cours
 
 ## Contexte de transformation digitale
+
 Le système remplace un suivi dispersé par fichiers et échanges manuels par une plateforme unifiée qui permet de structurer l'information, réduire les pertes de données et améliorer la coordination entre les acteurs.
 
 ## Problématique
+
 Comment digitaliser le suivi scolaire tout en gardant un outil simple, fiable, sécurisé et utile pour la prise de décision pédagogique et sociale ?
 
 ## Objectifs
+
 - Centraliser les données de suivi
 - Donner une visibilité rapide sur les indicateurs clés
 - Séparer les droits selon les rôles
@@ -25,6 +35,7 @@ Comment digitaliser le suivi scolaire tout en gardant un outil simple, fiable, s
 - Montrer les notions de transformation digitale dans un cas concret
 
 ## Fonctionnalités
+
 - Authentification et profils utilisateur
 - Rôles: administrateur, enseignant, encadrant
 - Gestion des élèves avec archivage
@@ -38,6 +49,7 @@ Comment digitaliser le suivi scolaire tout en gardant un outil simple, fiable, s
 - Landing page publique et page "Transformation digitale"
 
 ## Stack technique
+
 - Laravel 12
 - PHP 8.2+
 - SQLite
@@ -48,6 +60,7 @@ Comment digitaliser le suivi scolaire tout en gardant un outil simple, fiable, s
 - barryvdh/laravel-dompdf
 
 ## Architecture fonctionnelle
+
 - Couche publique: accueil, transformation digitale
 - Couche authentifiée: dashboard, modules métier
 - Couche administration: staff et import/export
@@ -55,6 +68,7 @@ Comment digitaliser le suivi scolaire tout en gardant un outil simple, fiable, s
 - Couche décisionnelle: statistiques et graphiques
 
 ## Installation locale
+
 ```bash
 composer install
 npm install
@@ -66,25 +80,30 @@ php artisan serve
 ```
 
 ## Configuration SQLite
+
 Le projet est prévu pour fonctionner avec SQLite en local.
 
 Vérifier dans `.env`:
+
 ```env
 DB_CONNECTION=sqlite
 DB_DATABASE=/chemin/absolu/vers/database/database.sqlite
 ```
 
 Si le fichier n'existe pas:
+
 ```bash
 touch database/database.sqlite
 ```
 
 ## Comptes de test
+
 - `admin@edutrack.test` / `password`
 - `enseignant@edutrack.test` / `password`
 - `encadrant@edutrack.test` / `password`
 
 ## Commandes utiles
+
 ```bash
 composer install
 npm install
@@ -97,6 +116,7 @@ php artisan test
 ```
 
 ## Scénario de démonstration en 10 minutes
+
 1. Ouvrir la page d'accueil et présenter le contexte du projet.
 2. Montrer la page "Transformation digitale" et expliquer les notions du cours.
 3. Se connecter avec le compte administrateur.
@@ -109,6 +129,7 @@ php artisan test
 10. Ouvrir import/export pour montrer la logique de gestion de la donnée.
 
 ## Notions du cours appliquées
+
 - Diagnostic de l'existant
 - Stratégie digitale
 - Axes de transformation
@@ -120,6 +141,7 @@ php artisan test
 - Pilotage par indicateurs
 
 ## Structure du projet
+
 - `app/Http/Controllers`: logique métier
 - `app/Models`: modèles et calculs
 - `database/migrations`: schéma de base de données
@@ -128,7 +150,15 @@ php artisan test
 - `resources/css` et `resources/js`: assets front
 - `tests`: tests de démonstration
 
+## Portfolio Value
+
+- Real internship context with user needs and operational constraints.
+- Practical Laravel application with roles, dashboards, exports, and PDF reports.
+- Clear example of digital transformation applied to an educational association.
+- Useful complement to larger full-stack projects such as Interlance, MarketHub, and SmartSim Analytics.
+
 ## Perspectives
+
 - Alertes automatiques sur les élèves à risque
 - Historique plus détaillé des changements
 - Export PDF plus avancé
@@ -136,6 +166,7 @@ php artisan test
 - Tableau de bord enrichi par semestre et par classe
 
 ## Captures d'écran à ajouter
+
 - Page d'accueil
 - Dashboard
 - Liste des élèves
